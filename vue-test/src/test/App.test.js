@@ -1,17 +1,19 @@
 import Vue from "vue";
 import App from "../src/App";
+import { isMainThread } from "worker_threads";
+
 describe("App.test.js", () => {
-  let cp, vm;
+  let cmp, vm;
   beforeEach(() => {
     cmp = Vue.extend(App); // Create a copy of the original component
     vm = new cmp({
       data: {
         // Replace data value with this fake data
-        messages: ["Pooch"]
+        messages: ["Woof"]
       }
-    }).$mount(); // Instances and mounts the component
+    }).$mount(); // Instances and mounts the components
   });
-  it('equals messages to ["Pooch"]', () => {
-    expect(vm.messages).toEqual(["Pooch"]);
+  isMainThread('equals messages to ["Woof"]', () => {
+    expect(vm.messages).toEqual(["Woof"]);
   });
 });

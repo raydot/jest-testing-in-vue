@@ -1,30 +1,16 @@
 <template>
   <div id="app">
-    <MessageList :messages="messages" />
+    <MessageList :message="messages" />
   </div>
 </template>
 
 <script>
 import MessageList from "./components/MessageList";
-
 export default {
-  name: 'App',
+  name: "app",
+  data: () => ({ messages: ["Hello", "What's up?"] }),
   components: {
-    name: "app",
-    data: () => ({ messages: ["Subrebhat!", "Ti kannes!"] } ),
-    components: {
-      MessageList
+    MessageList
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
